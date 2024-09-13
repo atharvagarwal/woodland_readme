@@ -144,7 +144,7 @@ Overall, this component manages OTP-based login verification with responsive UI 
 **_layout.tsx**
 This code creates a tab-based navigation layout using expo-router in a React Native app. It defines four screens (Home, Explore, Cart, Orders), each represented by a tab with custom icons from FontAwesome, AntDesign, and SimpleLineIcons. The screenOptions function sets dynamic properties for all tabs, such as the active tab color using Colors.common.primaryButton and showing a custom Header component that changes its title based on the current route. Tabs like Explore, Cart, and Orders use unmountOnBlur to unload their content when not in focus, optimizing performance.
 
->>**Cart.tsx**
+**Cart.tsx**
 The Cart component in React Native displays products added to the cart using useCustomStore to fetch the cartProduct list.
 
 **Key Features:**
@@ -157,7 +157,7 @@ Checkout Button: At the bottom, a "Checkout" button navigates the user to the ch
 
 The component uses a ScrollView for scrolling through items and is styled for proper alignment and layout.
 
->>**Explore.tsx**
+**Explore.tsx**
 
 The Explore component is a product listing page with filtering options, infinite scrolling, and data fetching in a React Native app. It consists of the following key features:
 
