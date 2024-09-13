@@ -95,11 +95,11 @@ hooks\api
 
 The app folder consists of the files & folders mentioned the folder structure above and now we are going to discuss about each of them in detail . Moreover , we use expo router for the routing purpose.
 
-1.  **layout.tsx**
+1.**layout.tsx**
 
 This file sets up the global structure and services for an Expo app. This our app we initializ Sentry for error and performance tracking, including navigation tracking via ReactNativeTracing. Amplitude is set up for event analytics, and platform-specific logic is used to fetch referrer details on Android and request tracking permissions on iOS. The QueryClientProvider enables API request management using React Query, and the Stack component handles screen navigation. Sentry wraps the entire layout to monitor unhandled errors, ensuring a robust, tracked app experience across various functionalities.
 
-2. **(auth.tsx)**
+2.**(auth.tsx)**
 It is the inital entry point of the application and consists of the following files->
 
 **_layout.tsx** - The Layout component provides a safe and structured container for rendering screens in the app. It uses SafeAreaView from react-native-safe-area-context to ensure content avoids system UI elements like the status bar or notch. The Slot component acts as a placeholder where child routes or screens will be rendered dynamically. The styles.top applies a background color from the Colors.light.background constant and ensures that the view takes up the full height of the screen using flex: 1. This setup creates a flexible and visually consistent layout for the app's navigation structure.
@@ -139,7 +139,7 @@ UI Layout: The component includes a title, description, OTP input field, and a b
 
 Overall, this component manages OTP-based login verification with responsive UI feedback and handles both success and error scenarios.
 
-3. **(tabs)**
+3.**(tabs)**
 
 **_layout.tsx**
 This code creates a tab-based navigation layout using expo-router in a React Native app. It defines four screens (Home, Explore, Cart, Orders), each represented by a tab with custom icons from FontAwesome, AntDesign, and SimpleLineIcons. The screenOptions function sets dynamic properties for all tabs, such as the active tab color using Colors.common.primaryButton and showing a custom Header component that changes its title based on the current route. Tabs like Explore, Cart, and Orders use unmountOnBlur to unload their content when not in focus, optimizing performance.
@@ -216,7 +216,7 @@ Styling: The component is styled for layout and visual appeal, ensuring consiste
 
 This approach ensures a smooth user experience with proper error handling and data display.
 
-4. **+native-intent.tsx**
+4.**+native-intent.tsx**
 The redirectSystemPath function is designed to convert a specific URL path into a new format for redirection. Here’s a breakdown:
 
 
@@ -240,7 +240,7 @@ Usage:
 This function is useful for redirecting or converting paths in a routing system, specifically from a path structure like /product-detail/{slug} to a query parameter format like /ProductDetail?slug={slug}.
 Overall, it simplifies the process of handling and transforming specific URL patterns for redirection purposes.
 
-5. **+not-found.tsx**
+5.**+not-found.tsx**
 
 The NotFoundScreen component displays an alert with the message "No results found! Returning to home page" and then redirects the user to the home page using the Redirect component from expo-router. This is typically used to handle scenarios where a requested resource is not found, guiding users back to the main part of the app.
 
