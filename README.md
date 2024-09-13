@@ -140,7 +140,8 @@ UI Layout: The component includes a title, description, OTP input field, and a b
 Overall, this component manages OTP-based login verification with responsive UI feedback and handles both success and error scenarios.
 
 3. **(tabs)**
-> **_layout.tsx**
+
+**_layout.tsx**
 This code creates a tab-based navigation layout using expo-router in a React Native app. It defines four screens (Home, Explore, Cart, Orders), each represented by a tab with custom icons from FontAwesome, AntDesign, and SimpleLineIcons. The screenOptions function sets dynamic properties for all tabs, such as the active tab color using Colors.common.primaryButton and showing a custom Header component that changes its title based on the current route. Tabs like Explore, Cart, and Orders use unmountOnBlur to unload their content when not in focus, optimizing performance.
 
 >>**Cart.tsx**
