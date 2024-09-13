@@ -278,7 +278,7 @@ Shipping Address: Shows contact info and shipping address.
 Navigation: Includes a "Go back" button to return to the previous screen with router.back().
 Layout & Styling: Uses SafeAreaView and StyleSheet for responsive design and consistent styling.
 
-8. **ProductDetail.tsx**
+8.**ProductDetail.tsx**
 The compoenent Displays detailed product information and handles user interactions.
 
 **Key Features:**
@@ -310,7 +310,7 @@ Action Buttons: Includes "Add to Cart" or "Go to Cart" buttons based on cart sta
 
 Pincode Checker: Allows users to enter a pincode for delivery validation.
 
-9. **Success.tsx**
+9.**Success.tsx**
 
 The Success component displays a confirmation screen after an order has been placed. It handles data fetching, revenue tracking, and UI rendering.
 
