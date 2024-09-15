@@ -458,380 +458,474 @@ The `Success.tsx` component provides a confirmation screen for users after they 
     - Includes a button that navigates the user to the orders screen, allowing them to view their order history.
 
 
-## Components 
-
-1.**/Base/Button**
-The CustomButton component in React Native renders a button with three style options: 'primary', 'secondary', and 'tertiary'. The button's appearance changes based on the type prop:
-Primary: A solid button with a background color.
-Secondary: A bordered button with no background.
-Tertiary: A button with no specific style.
-It also displays a customizable title and triggers an onPress function when clicked. The styles and layout are dynamically adjusted based on the type prop, ensuring flexibility in design.
 
-2.**/Base/Header**
-This Header component in React Native displays a customizable header with search and drawer functionalities:
-Props: It takes a title and an optional onExplore boolean.
-State Management: It manages states for search visibility (searchBar), search input (searchText), and drawer visibility (drawerPress).
-Search Bar: When active, it displays a TextInput for search and routes to the Explore page based on input.
-Drawer: Tapping the drawer icon shows a modal (DrawerModal) with options for logging out and deleting the account.
-Cart & Search Icons: The header has icons to toggle the search bar and navigate to the Cart screen.
-This component is well-structured for dynamic title display and navigation functionality.
-
-3.**Cart**
-This CartCard component in React Native represents an item in a shopping cart. Here's a breakdown of its features:
-Props:
-id, imageUrl, title, price, color, size, quantity: The card displays an image, item details (color, size, price), and quantity.
-pickerEnabled: A boolean that controls whether the quantity can be updated via a dropdown.
-Main Features:
-Image Display: Shows the product image using Expo's Image component with a loader (woodland-loader.gif).
-Details: Renders the item's title, price, color, size, and quantity.
-Quantity Picker: If pickerEnabled is true, users can change the quantity via a dropdown. The dropdown toggles open/close states.
-Remove Functionality: Users can remove the item from the cart.
-Interactions: The quantity picker allows users to select between 1, 2, or 3, and the removeFromCart function deletes the item.
-State:
-Manages the dropdown state (open) to toggle between showing or hiding the quantity picker.
-This component is a flexible and reusable card for displaying cart items with the ability to modify the quantity and remove items from the cart.
-
-4.**Checkout**
-
-**Address.tsx**
-The AddressCard component in React Native displays a user's address with an option to confirm delivery.
-
-Props:
+## Components Breakdown
 
-address: A string containing the address.
-Features:
-
-Address Display: Shows a "Home" label and the provided address.
-Delivery Button: A "Deliver to this address" button logs a message when pressed.
-Styles:
-
-Container: Light background with rounded corners, shadows, and elevation, taking up 95% of the screen width.
-Header: Displays the "Home" label and address with padding.
-Button: Green with bold white text for the delivery option.
-This reusable component suits checkout processes or address books.
+### **/Base/Button**
 
-**AddressForm.tsx**
-
-The AddressForm component is a React Native form designed for collecting address details. It uses react-hook-form to handle form state, validation, and submission.
+The `CustomButton` component renders a button with three style options: 'primary', 'secondary', and 'tertiary'. Key features include:
+
+- **Style Options:**
+  - **Primary:** A solid button with a background color.
+  - **Secondary:** A bordered button with no background.
+  - **Tertiary:** A button with no specific style.
+- **Props:**
+  - **`type` (string):** Defines the button style ('primary', 'secondary', 'tertiary').
+  - **`title` (string):** The text displayed on the button.
+  - **`onPress` (function):** Callback function triggered when the button is pressed.
+- **Functionality:**
+  - The button's appearance dynamically adjusts based on the `type` prop, ensuring flexible design and integration across different parts of the app.
 
-Key Features:
-Form Fields: Includes fields for houseNumber, city, pin, state, and landmark. Each field is managed with ControlledInput, a custom component that integrates with react-hook-form for controlled input management.
-Validation: Essential fields (houseNumber, city, pin, state) have validation rules to ensure they are filled out correctly, with custom error messages for each.
-Reset Button: Positioned at the top-right, this button clears the form data when pressed.
-Layout: Utilizes flexbox for arranging the inputs, with responsive styling that adapts to screen width. The form is padded and has a light background with a border at the top for visual separation.
-This component is useful for adding new addresses in an application, ensuring users provide all necessary information with built-in validation and a reset option.
+### **/Base/Header**
 
-**Bill.tsx**
+The `Header` component displays a customizable header with search and drawer functionalities. Key features include:
+
+- **Props:**
+  - **`title` (string):** The text displayed in the header.
+  - **`onExplore` (boolean, optional):** Determines if the Explore functionality is enabled.
+- **State Management:**
+  - **`searchBar` (boolean):** Controls the visibility of the search bar.
+  - **`searchText` (string):** Manages the input text for the search bar.
+  - **`drawerPress` (boolean):** Controls the visibility of the drawer modal.
+- **Search Bar:**
+  - Displays a `TextInput` for search when active, routing to the Explore page based on input.
+- **Drawer:**
+  - Tapping the drawer icon shows a `DrawerModal` with options for logging out and deleting the account.
+- **Icons:**
+  - Includes icons for toggling the search bar and navigating to the Cart screen.
 
-The Bill component displays a detailed financial summary with the following features:
+This component is well-structured for dynamic title display and navigation functionality, enhancing the app's usability.
 
-Props: Accepts subtotal, donation, discount, deliveryCharges, and total.
-Layout: Each financial item (e.g., subtotal, donation, discount) is shown in its own row with labels and formatted values.
-Total: The final amount is highlighted at the bottom in a bold and larger font.
-Styling: Uses a light background with rounded corners and a border for a card-like appearance. Text is formatted for clarity and readability.
-Design: Ensures a clear, organized view of charges and totals for easy user review.
+### **Cart**
 
-**Donation.tsx**
-
-The Donation component allows users to opt-in for updates and add a donation to their transaction. Here’s a breakdown:
+The `CartCard` component represents an item in a shopping cart. Key features include:
+
+- **Props:**
+  - **`id` (string):** Unique identifier for the cart item.
+  - **`imageUrl` (string):** URL of the item's image.
+  - **`title` (string):** Name of the item.
+  - **`price` (number):** Price of the item.
+  - **`color` (string):** Color of the item.
+  - **`size` (string):** Size of the item.
+  - **`quantity` (number):** Quantity of the item in the cart.
+  - **`pickerEnabled` (boolean):** Determines if the quantity can be updated via a dropdown.
+- **Main Features:**
+  - **Image Display:** Shows the product image using Expo's `Image` component with a loader (`woodland-loader.gif`).
+  - **Details:** Renders the item's title, price, color, size, and quantity.
+  - **Quantity Picker:** Allows users to change the quantity via a dropdown if `pickerEnabled` is true. The dropdown toggles between open and closed states.
+  - **Remove Functionality:** Users can remove the item from the cart using the `removeFromCart` function.
+- **State:**
+  - Manages the dropdown state (`open`) to toggle the visibility of the quantity picker.
 
-Props: Receives an onSelect function to notify changes.
-State: Manages two boolean states:
-receiveUpdates: Tracks user preference for receiving updates.
-addDonation: Manages if a ₹30 donation should be added to the transaction.
-Checkboxes:
-The first checkbox lets users opt-in for updates on products and promotions.
-The second checkbox allows users to add a ₹30 donation, triggering onSelect when changed.
-Styles: The component uses a light background and aligns checkboxes with labels for a clear and user-friendly layout.
-
-5.**ControlledInput**
-The ControlledInput component integrates with React Hook Form to provide a versatile input field with additional functionalities:
+This component is designed to be flexible and reusable, providing a detailed view of cart items with options to modify the quantity and remove items.
 
-Props:
-Inherits all standard TextInput props.
-Custom props include icon (for visual icons), name (form field name), rules (validation rules), control (hook form control object), containerStyle, rootContainerStyle, inputContainerStyle, isPassword (for password fields), countryCode (for handling country codes), and onCountryChange (callback for country changes).
 
-State Management:
 
-Maintains a secureText state to toggle password visibility.
-Controller Integration:
-
-Utilizes React Hook Form's Controller to bind form state and handle validation seamlessly. The Controller component manages field value and error state, ensuring smooth integration with the form.
-
-Rendering:
-
-Renders a TextInput with optional password visibility toggle using an Ionicons icon. Displays error messages if validation fails.
-Applies custom styles provided through props to adjust appearance and layout.
-The component is designed to be flexible, supporting various input types and customizations while handling form validation and state management efficiently.
-
-6.**ProductDetail**
+## Checkout Components
 
-**PincodeChecker.tsx**
-The PincodeChecker component is used for handling pincode input with validation.
+### **Address.tsx**
 
-Key Features:
-Props:
-
-onPress: Callback triggered when the "Check" button is pressed.
-control: React Hook Form’s Control object for managing form state and validation.
-name: Name of the form field for React Hook Form.
-maxLength (optional): Limits the pincode input length.
-Components:
+The `AddressCard` component displays a user's address with an option to confirm delivery. Key features include:
 
-ControlledInput: Custom input field integrated with React Hook Form, styled for pincode entry.
-TouchableOpacity: Button labeled "Check", triggering the onPress function.
-Styles:
-
-pincodeContainer: Flex container for layout.
-pincodeButtonContainer: Contains the ControlledInput.
-checkButton: Styled button for submission.
-Usage:
-Ideal for scenarios needing pincode input, such as code verification or delivery checks.
-
-**ProductCarousel.tsx**
-The ProductCarousel component displays a horizontal image carousel with pagination indicators.
-
-Key Features:
-Props:
-
-images: Array of image URLs for the carousel.
-Components:
-
-Img: Renders each image with a loading indicator.
-FlatList: Displays images horizontally, with paging enabled.
-ActivityIndicator: Shows a loading spinner while images load.
-Functionality:
-
-Image Handling: Images are displayed in a scrollable carousel. An ActivityIndicator is shown while images load.
-Pagination: Dots below the carousel indicate the current image. The active dot’s opacity changes based on the currently visible image.
-Styles:
+- **Props:**
+  - **`address` (string):** The address to be displayed.
+- **Features:**
+  - **Address Display:** Shows a "Home" label and the provided address.
+  - **Delivery Button:** Includes a "Deliver to this address" button that logs a message when pressed.
+- **Styles:**
+  - **Container:** Features a light background with rounded corners, shadows, and elevation, covering 95% of the screen width.
+  - **Header:** Displays the "Home" label and address with padding.
+  - **Button:** Styled in green with bold white text for the delivery option.
 
-dotContainer: Container for pagination dots.
-dot: Style for pagination dots with variable opacity.
+This reusable component is ideal for checkout processes or address books.
 
-Usage:
-Ideal for displaying multiple images in a scrollable format with visual indicators for the current image.
-
-7.**Orders**
-
-**OrderCart.tsx**
-The OrderCard component displays an order's details with options to view or cancel the order.
-
-Key Features:
-Props:
-
-imageUrl: Image source for the product.
-title: Product title.
-subtitle: Quantity of the product.
-size: Size of the product.
-orderId, subOrderId: Identifiers for the order.
-cancellable: Determines if the order can be canceled.
-status: Current status of the order.
-Components:
+### **AddressForm.tsx**
 
-Image: Displays product image with a placeholder and caching.
-ActivityIndicator: Shows a spinner while canceling the order.
-TouchableOpacity: Buttons for viewing order details and canceling the order.
-Functionality:
+The `AddressForm` component is designed for collecting address details, leveraging `react-hook-form` for form state management and validation. Key features include:
 
-View Details: Navigates to order detail page.
-Cancel Order: Prompts confirmation and cancels the order if confirmed. Updates the order list and handles errors.
-Styles:
+- **Form Fields:**
+  - Includes fields for `houseNumber`, `city`, `pin`, `state`, and `landmark`, each managed with `ControlledInput`, a custom component integrated with `react-hook-form`.
+- **Validation:**
+  - Essential fields (`houseNumber`, `city`, `pin`, `state`) include validation rules to ensure correct input, with custom error messages.
+- **Reset Button:**
+  - Positioned at the top-right to clear form data when pressed.
+- **Layout:**
+  - Uses flexbox for responsive arrangement of inputs, with padding, a light background, and a border at the top for visual separation.
 
-Container: Card with shadow and padding for the order.
-Row: Layout for image and details.
-Button: Styled for "View Details" and "Cancel" actions.
-Usage:
-This component is used to present individual order details with actions to view more information or cancel the order, depending on its status.
+This component is useful for adding new addresses, ensuring users provide all necessary information with built-in validation and a reset option.
 
-**OrderDetailCard.tsx**
+### **Bill.tsx**
 
-The OrderDetailCard component displays detailed information about an individual order item.
+The `Bill` component provides a detailed financial summary. Key features include:
 
-Key Features:
-Props:
+- **Props:**
+  - Accepts `subtotal`, `donation`, `discount`, `deliveryCharges`, and `total`.
+- **Layout:**
+  - Displays each financial item (e.g., subtotal, donation, discount) in its own row with labels and formatted values.
+- **Total:**
+  - Highlights the final amount at the bottom in bold and larger font.
+- **Styling:**
+  - Uses a light background with rounded corners and a border for a card-like appearance. Text is formatted for clarity and readability.
 
-url: Image URL of the product.
-title: Product title.
-color: Color of the product.
-quantity: Quantity ordered.
-size: Size of the product.
-price: Original price of the product.
-finalPrice: Discounted or final price.
-subOrderId: Unique identifier for the sub-order.
-Components:
+This component ensures a clear, organized view of charges and totals for easy user review.
 
-Image: Displays the product image.
-Text: Shows product details like title, color, size, quantity, and price.
-Functionality:
+### **Donation.tsx**
 
-Price Display: Shows the original price with a line-through if it differs from the final price. Displays the final price prominently.
-Styles:
+The `Donation` component allows users to opt-in for updates and add a donation to their transaction. Key features include:
 
-Root: Card layout with border, padding, and spacing.
-Image Container: Section for product image.
-Product Detail Container: Section for product details.
-Price Details Container: Section for displaying prices.
-Usage:
-This component is used to present detailed information about an item in an order, including its image, specifications, and pricing, with clear differentiation between original and final prices.
+- **Props:**
+  - **`onSelect` (function):** Notifies changes when checkboxes are selected or deselected.
+- **State:**
+  - **`receiveUpdates` (boolean):** Tracks user preference for receiving updates.
+  - **`addDonation` (boolean):** Manages if a ₹30 donation should be added to the transaction.
+- **Checkboxes:**
+  - **Updates Checkbox:** Lets users opt-in for updates on products and promotions.
+  - **Donation Checkbox:** Allows users to add a ₹30 donation, triggering `onSelect` when changed.
+- **Styles:**
+  - Features a light background and aligns checkboxes with labels for a clear and user-friendly layout.
 
-8.**Common**
+This component enhances the checkout process by offering users the option to contribute to donations and receive updates.
 
-**Accordion.tsx**
-in a bit short
-ChatGPT said:
-ChatGPT
-The Accordian component provides a collapsible section for displaying and hiding content.
 
-Props:
+### **ControlledInput**
 
-title: Header text.
-onLinkPress: Optional callback for link press.
-href: Optional navigation link.
-children: Content to show when expanded.
-dropdown: Controls whether the component has a dropdown arrow (default is true).
-subDrawer: Adjusts styling for sub-items.
-Features:
+The `ControlledInput` component integrates with React Hook Form to offer a versatile input field with enhanced functionalities.
 
-Toggle Function: Clicking the header toggles the visibility of the content.
-Icon: An arrow icon indicates whether the section is expanded or collapsed.
-Styles:
+- **Props:**
+  - **`icon` (React.Element):** Optional visual icon to display inside the input field.
+  - **`name` (string):** Name of the form field, used for form state management.
+  - **`rules` (object):** Validation rules for the input field.
+  - **`control` (object):** React Hook Form control object used for managing form state.
+  - **`containerStyle` (object):** Custom styles for the overall container of the input field.
+  - **`rootContainerStyle` (object):** Styles for the root container wrapping the input field.
+  - **`inputContainerStyle` (object):** Styles for the container specifically around the input.
+  - **`isPassword` (boolean):** Determines if the input field should handle password visibility.
+  - **`countryCode` (string):** Handles the display and selection of country codes (optional).
+  - **`onCountryChange` (function):** Callback function triggered when the country code changes.
 
-link and subLink: Style for text and layout based on whether it's a main item or a sub-item.
-text and subText: Font styles for the header text.
-This component is used for creating expandable sections in a UI, ideal for menus or settings.
+- **State Management:**
+  - **`secureText` (boolean):** Manages password visibility, toggling between showing and hiding password characters.
 
-**CategoryButton.tsx**
+- **Controller Integration:**
+  - Utilizes React Hook Form's `Controller` to seamlessly bind form state and handle validation. The `Controller` component manages field value and error state, ensuring smooth integration with the form.
 
-The CategoryButton component is a customizable button for React Native.
+- **Rendering:**
+  - Renders a `TextInput` component with optional password visibility toggle using an Ionicons icon.
+  - Displays error messages if validation fails.
+  - Applies custom styles provided through props to adjust the appearance and layout of the input field.
 
-Props:
+This component is designed for flexibility, supporting various input types and customizations while efficiently handling form validation and state management.
 
-text: Button label.
-onPress: Function to call when the button is pressed.
-backgroundColor: Button's background color.
-textColor: Text color.
-id: Unique identifier for the button.
-Features:
 
-Style: The button uses Pressable for press handling and supports custom colors for both background and text.
-Layout: The button is styled with rounded corners and center-aligned text.
-Usage:
+## **ProductDetail**
 
-The CategoryButton component can be used for various interactive elements where customization of colors and text is needed, such as category filters or action buttons.
+### **PincodeChecker.tsx**
 
-**CategoryList.tsx**
+The `PincodeChecker` component handles pincode input with validation.
 
-The CategoryList component is a horizontal scrollable list of category buttons.
+- **Key Features:**
 
-Features:
+  - **Props:**
+    - **`onPress` (function):** Callback triggered when the "Check" button is pressed.
+    - **`control` (object):** React Hook Form’s `Control` object for managing form state and validation.
+    - **`name` (string):** Name of the form field used by React Hook Form.
+    - **`maxLength` (number, optional):** Limits the pincode input length.
 
-Data Handling: It uses an array of category names (data) to render buttons.
-State Management: Keeps track of the selected category with selectedId and updates it on button press.
-Navigation: Uses useRouter from expo-router to navigate to a category-specific page when a button is pressed.
-Components:
+  - **Components:**
+    - **`ControlledInput`**: A custom input field integrated with React Hook Form, styled specifically for pincode entry.
+    - **`TouchableOpacity`**: A button labeled "Check", which triggers the `onPress` function.
 
-ScrollView: Allows horizontal scrolling of the category buttons. Styled to ensure proper height and background color.
-CategoryButton: Custom button component that changes appearance based on whether it is selected or not.
-Usage:
+  - **Styles:**
+    - **`pincodeContainer`**: Flex container used for layout.
+    - **`pincodeButtonContainer`**: Contains the `ControlledInput`.
+    - **`checkButton`**: Styled button for submission.
 
-Ideal for displaying a list of categories where users can select one to view related content. The selected category is highlighted, and pressing a button navigates to a category-specific page.
+  - **Usage:**
+    - Ideal for scenarios requiring pincode input, such as code verification or delivery checks.
 
-**drawerModal.tsx**
+### **ProductCarousel.tsx**
 
-The DrawerModal component creates a modal drawer for navigation and settings.
+The `ProductCarousel` component displays a horizontal image carousel with pagination indicators.
 
-Features:
+- **Key Features:**
 
-Visibility: Controlled via visible prop.
-Content: Displays a close button, logo, and a list of navigational links organized into expandable accordions.
-Accordions: Show/hide sub-items for categories like Footwear, Topwear, and Bottomwear. Additional settings option for iOS/macOS users.
-Navigation: Uses Link for routing to various sections.
-Platform Handling: Adjusts for Android status bar and applies specific styling based on the platform.
-Usage: Ideal for providing a detailed navigation menu and settings options within an app, with support for hierarchical categories and conditional content based on the platform.
+  - **Props:**
+    - **`images` (array):** Array of image URLs to be displayed in the carousel.
 
-**FilterComponent.tsx**
+  - **Components:**
+    - **`Img`**: Renders each image with a loading indicator.
+    - **`FlatList`**: Displays images horizontally, with paging enabled.
+    - **`ActivityIndicator`**: Shows a loading spinner while images are being loaded.
 
-The FilterComponent is a React Native component designed to display and manage a set of filter options. Here's a concise overview:
+  - **Functionality:**
+    - **Image Handling**: Displays images in a scrollable carousel. An `ActivityIndicator` is shown while images are loading.
+    - **Pagination**: Dots below the carousel indicate the current image. The opacity of the active dot changes based on the currently visible image.
 
-Purpose: Allows users to filter items based on categories like gender, size, color, sort, and price.
+  - **Styles:**
+    - **`dotContainer`**: Container for pagination dots.
+    - **`dot`**: Style for pagination dots, with variable opacity to reflect the currently visible image.
 
-Props:
+  - **Usage:**
+    - Ideal for displaying multiple images in a scrollable format, with visual indicators for the current image.
 
-onClose: Callback function to handle closing the filter modal.
-State Management:
 
-Uses useCustomStore to manage the selected category and options, and to reset filters.
-Components:
+## **Orders Breakdown**
 
-Filter Categories: Displays clickable categories (e.g., gender, size).
-Options: Displays options for the selected category, allowing users to select or deselect filters.
-Buttons: "Clear All" button to reset filters, "Close" and "Apply" buttons to close the filter modal.
-Styles:
+### **OrderCard.tsx**
 
-Uses StyleSheet for layout and styling, with a focus on usability and visual distinction between selected and unselected options.
-Functions:
+The `OrderCard` component displays the details of an order with options to view or cancel it.
 
-handleCategoryClick: Sets the current filter category.
-handleOptionClick: Updates selected options based on user interaction.
-handleCancelFilters: Resets all filters.
-This component is designed to be flexible and reusable, integrating with a state management system to update and apply filters dynamically.
+- **Key Features:**
 
-**ProductListingCard.tsx**
-Purpose: Displays a product card with an image, title, pricing, and color options.
+  - **Props:**
+    - **`imageUrl` (string):** Image source for the product.
+    - **`title` (string):** Product title.
+    - **`subtitle` (string):** Quantity of the product.
+    - **`size` (string):** Size of the product.
+    - **`orderId` (string):** Identifier for the order.
+    - **`subOrderId` (string):** Identifier for the sub-order.
+    - **`cancellable` (boolean):** Determines if the order can be canceled.
+    - **`status` (string):** Current status of the order.
 
-Props:
+  - **Components:**
+    - **`Image`**: Displays the product image with a placeholder and caching.
+    - **`ActivityIndicator`**: Shows a spinner while the order is being canceled.
+    - **`TouchableOpacity`**: Buttons for viewing order details and canceling the order.
 
-title: Product title.
-price: Original price.
-offerPrice: Discounted price.
-productImageUrl: Main image URL.
-productMeta: Color options with URLs.
-Functionality:
+  - **Functionality:**
+    - **View Details**: Navigates to the order detail page.
+    - **Cancel Order**: Prompts for confirmation and cancels the order if confirmed. Updates the order list and handles errors.
 
-Shows main product image and discount badge if applicable.
-Displays both original and discounted prices.
-Renders clickable color thumbnails that update the main image and navigate to product details.
-Navigation: Uses expo-router to change route based on selected color's slug.
+  - **Styles:**
+    - **`Container`**: Card with shadow and padding for the order.
+    - **`Row`**: Layout for image and details.
+    - **`Button`**: Styled for "View Details" and "Cancel" actions.
 
-**Size.tsx**
-Purpose: Displays a size option with customizable styling based on availability and state.
+  - **Usage:**
+    - This component is used to present individual order details with actions to view more information or cancel the order, depending on its status.
 
-Props:
+### **OrderDetailCard.tsx**
 
-size: Size text to display.
-soldOut: Optional; if true, indicates the size is unavailable.
-color: Background color of the size option.
-inCart: Optional; if true, the size is in the cart.
-Functionality:
+The `OrderDetailCard` component displays detailed information about an individual order item.
 
-Displays a circular box with the size text.
-If soldOut, applies a gray background and ensures text color is white.
-If inCart, ensures text color is white.
-If no soldOut or inCart, text color is black and background is set by color.
-Styling:
+- **Key Features:**
 
-root: Basic style for available sizes.
-soldRoot: Style for sizes marked as sold out.
+  - **Props:**
+    - **`url` (string):** Image URL of the product.
+    - **`title` (string):** Product title.
+    - **`color` (string):** Color of the product.
+    - **`quantity` (number):** Quantity ordered.
+    - **`size` (string):** Size of the product.
+    - **`price` (number):** Original price of the product.
+    - **`finalPrice` (number):** Discounted or final price.
+    - **`subOrderId` (string):** Unique identifier for the sub-order.
 
-**SizeChart.tsx**
-Purpose: Displays a modal with size charts for shoes or garments based on the type prop.
+  - **Components:**
+    - **`Image`**: Displays the product image.
+    - **`Text`**: Shows product details such as title, color, size, quantity, and price.
 
-Props:
+  - **Functionality:**
+    - **Price Display**: Shows the original price with a line-through if it differs from the final price. Displays the final price prominently.
 
-visible: Controls the visibility of the modal.
-type: Determines the chart type, either "SHOES" or "GARMENTS".
-onCrossPress: Optional; function called when the close button is pressed.
-Functionality:
+  - **Styles:**
+    - **`Root`**: Card layout with border, padding, and spacing.
+    - **`Image Container`**: Section for the product image.
+    - **`Product Detail Container`**: Section for product details.
+    - **`Price Details Container`**: Section for displaying prices.
 
-Shows size charts for different categories (men's and women's shoes, and men's and women's garments).
-Each chart includes size measurements in various units (UK, EURO, CM for shoes; chest measurements for garments).
-Alternates row colors for better readability.
-Styling:
+  - **Usage:**
+    - This component is used to present detailed information about an item in an order, including its image, specifications, and pricing, with clear differentiation between original and final prices.
 
-Uses SafeAreaView for proper layout.
-Includes a close button using Entypo and adjusts text and background colors based on the chart type.
-Usage:
 
-For garments: Displays charts for men's and women's tops and bottoms.
-For shoes: Displays charts for men's and women's shoes.
+## **Common Components**
+
+
+## Accordion.tsx
+
+The `Accordion` component provides a collapsible section for displaying and hiding content.
+
+### Props
+
+- `title` (string): Header text.
+- `onLinkPress` (function, optional): Callback function for link press.
+- `href` (string, optional): Optional navigation link.
+- `children` (node): Content to show when expanded.
+- `dropdown` (boolean, default: `true`): Controls the presence of a dropdown arrow.
+- `subDrawer` (boolean): Adjusts styling for sub-items.
+
+### Features
+
+- **Toggle Function**: Clicking the header toggles the content visibility.
+- **Icon**: An arrow icon indicates the expanded or collapsed state.
+
+### Styles
+
+- `link` and `subLink`: Styles for text and layout based on item type.
+- `text` and `subText`: Font styles for header text.
+
+### Usage
+
+Used for creating expandable sections in a UI, ideal for menus or settings.
+
+---
+
+## CategoryButton.tsx
+
+The `CategoryButton` component is a customizable button for React Native.
+
+### Props
+
+- `text` (string): Button label.
+- `onPress` (function): Function to call when the button is pressed.
+- `backgroundColor` (string): Button background color.
+- `textColor` (string): Text color.
+- `id` (string): Unique identifier for the button.
+
+### Features
+
+- **Style**: Uses `Pressable` for handling press events and supports custom colors for background and text.
+- **Layout**: Styled with rounded corners and center-aligned text.
+
+### Usage
+
+Ideal for interactive elements where customization of colors and text is needed, such as category filters or action buttons.
+
+---
+
+## CategoryList.tsx
+
+The `CategoryList` component is a horizontal scrollable list of category buttons.
+
+### Features
+
+- **Data Handling**: Renders buttons using an array of category names.
+- **State Management**: Tracks the selected category with `selectedId` and updates it on button press.
+- **Navigation**: Uses `useRouter` from `expo-router` to navigate to a category-specific page.
+
+### Components
+
+- **ScrollView**: Allows horizontal scrolling of category buttons. Styled for proper height and background color.
+- **CategoryButton**: Custom button component that updates appearance based on selection.
+
+### Usage
+
+Displays a list of categories with the ability to select and view related content. The selected category is highlighted, and pressing a button navigates to a category-specific page.
+
+---
+
+## drawerModal.tsx
+
+The `DrawerModal` component creates a modal drawer for navigation and settings.
+
+### Features
+
+- **Visibility**: Controlled via the `visible` prop.
+- **Content**: Includes a close button, logo, and a list of navigational links organized into expandable accordions.
+
+### Usage
+
+Provides a detailed navigation menu and settings options within an app, supporting hierarchical categories and conditional content based on the platform.
+
+## FilterComponent.tsx
+
+The `FilterComponent` provides a flexible and reusable interface for applying and resetting filters.
+
+### Props
+
+- `handleCancelFilters` (function): Resets all filters.
+
+### Functionality
+
+- Integrates with a state management system to update and apply filters dynamically.
+
+### Usage
+
+Designed to be flexible and reusable, allowing integration with various state management systems for dynamic filter updates.
+
+---
+
+## ProductListingCard.tsx
+
+The `ProductListingCard` displays a product card featuring an image, title, pricing, and color options.
+
+### Props
+
+- `title` (string): Product title.
+- `price` (number): Original price.
+- `offerPrice` (number): Discounted price.
+- `productImageUrl` (string): URL for the main product image.
+- `productMeta` (object): Color options with URLs.
+
+### Functionality
+
+- Displays the main product image and a discount badge if applicable.
+- Shows both original and discounted prices.
+- Renders clickable color thumbnails that update the main image and navigate to product details.
+
+### Navigation
+
+- Uses `expo-router` to change routes based on the selected color's slug.
+
+### Usage
+
+Ideal for displaying product details with interactive color options and pricing information.
+
+---
+
+## Size.tsx
+
+The `Size` component displays a size option with customizable styling based on availability and state.
+
+### Props
+
+- `size` (string): Size text to display.
+- `soldOut` (boolean, optional): Indicates if the size is unavailable.
+- `color` (string): Background color of the size option.
+- `inCart` (boolean, optional): Indicates if the size is in the cart.
+
+### Functionality
+
+- Displays a circular box with the size text.
+- Applies different styles for sizes marked as sold out or those in the cart:
+  - **Sold Out**: Gray background and white text.
+  - **In Cart**: White text.
+  - **Available**: Black text and background color as specified.
+
+### Styling
+
+- `root`: Basic style for available sizes.
+- `soldRoot`: Style for sizes marked as sold out.
+
+### Usage
+
+Used for displaying size options with visual cues for availability and cart status.
+
+---
+
+## SizeChart.tsx
+
+The `SizeChart` component displays a modal with size charts for shoes or garments based on the `type` prop.
+
+### Props
+
+- `visible` (boolean): Controls the visibility of the modal.
+- `type` (string): Determines the chart type, either `"SHOES"` or `"GARMENTS"`.
+- `onCrossPress` (function, optional): Function called when the close button is pressed.
+
+### Functionality
+
+- Displays size charts for different categories:
+  - **Garments**: Men's and women's tops and bottoms.
+  - **Shoes**: Men's and women's shoes.
+- Each chart includes size measurements in various units (UK, EURO, CM for shoes; chest measurements for garments).
+- Alternates row colors for better readability.
+
+### Styling
+
+- Uses `SafeAreaView` for proper layout.
+- Includes a close button using Entypo and adjusts text and background colors based on the chart type.
+
+### Usage
+
+Provides size charts for both garments and shoes, with proper styling and visibility control.
+
