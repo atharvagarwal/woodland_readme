@@ -177,9 +177,9 @@ This component efficiently manages OTP-based login verification and provides res
 
 
 
-
-### **Tabs**
-The **Tabs** component includes functionalities and UI elements related to cart management:
+### **(tabs) folder breakdown**
+### **Cart**
+The **Cart** component includes functionalities and UI elements related to cart management:
 
 - **Empty Cart**: 
   - Displays a message "Your cart is empty" with a "Shop Now" button that navigates to the home screen when the cart is empty.
