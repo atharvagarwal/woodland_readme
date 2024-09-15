@@ -27,9 +27,20 @@ This project is structured as a modern expo application with usage of expo route
 .
 ├── app/ (automatic routing is done)
 │   ├── _layout.tsx           # Layout of the app
-│   ├── (auth)                # Initial entry point of the app in not logged in state &contains tabs for (signin , otp etc) with a default _layout.tsx file
-│   └── (tabs)                # Initial entry point of the app in logged in state contains pages for (e.g., Explore, Cart) with a default _layout.tsx file
-│   ├── _layout.tsx  
+|   │  auth/                  # Initial entry point of the app in logged in state contains pages for (e.g., Explore, Cart) with a default _layout.tsx file
+|   ├── _layout.tsx
+|   ├── index.tsx
+|   ├── Otp.tsx
+|   ├── SignIn.tsx
+|   |
+|    tabs/                     # Initial entry point of the app in not logged in state &contains tabs for (signin , otp etc) with a default _layout.tsx file
+|   ├── _layout.tsx
+|   ├── Cart.tsx
+|   ├── Categories.txt
+|   ├── Explore.tsx
+|   ├── home.tsx
+|   ├── Orders.tsx
+|   |        
 │   ├── +native-intent.tsx
 │   ├── +not-found.tsx
 │   ├── Checkout.tsx
