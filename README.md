@@ -1183,5 +1183,93 @@ The `apiRequest` instance is created using `axios.create()` and is configured wi
   - **`"Content-Type"`**: `"application/json"`
     - Specifies that the content type of the requests is JSON. This header informs the server that the data being sent to it is in JSON format.
 
+##Hooks/API (using react-query)
+
+##**ReactQuery.ts**
+# Configuration for API Requests and Authentication
+
+This document provides an overview of the `config.ts` file, which configures API requests, handles authentication tokens, and sets up React Query for data fetching and mutation.
+
+## 1. React Query Configuration
+
+The `queryClient` instance from `@tanstack/react-query` is configured to manage caching and error handling for API requests.
+
+### `queryClient`
+
+- **`mutationCache`**: Configured with a `MutationCache` to handle errors during mutations.
+  - **`onError`**: Callback function that logs errors when mutations fail.
+    - **`error`**: Error object that may include details from Axios requests.
+    - **`axios.isAxiosError(error)`**: Checks if the error is an Axios error.
+    - **`error.response?.data`**: Extracts server response data if available.
+    - **`ApiErrorTypes.ValidationError`**: Specific error type to handle validation errors.
+  - If a validation error is encountered, additional handling or logging can be customized here.
+
+- **`defaultOptions`**: Defines default settings for queries and mutations.
+  - **`queries`**:
+    - **`retry`**: Number of retry attempts for failed queries (set to 3).
+  - **`mutations`**:
+    - **`retry`**: Number of retry attempts for failed mutations (set to 3).
+    - **`gcTime`**: Time in milliseconds before garbage collection of unused data (set to 0).
+
+## 2. Authentication Token Management
+
+Functions for managing authentication tokens using `AsyncStorage` to persist the token across app sessions.
+
+### `setAuthToken`
+
+- **Purpose**: Stores an authentication token in AsyncStorage.
+- **Parameters**: 
+  - `token`: The authentication token to store.
+- **Error Handling**: Logs an error if storing the token fails.
+
+### `getAuthToken`
+
+- **Purpose**: Retrieves the authentication token from AsyncStorage.
+- **Returns**: The stored token or `null` if an error occurs.
+- **Error Handling**: Logs an error if fetching the token fails.
+
+### `removeAuthToken`
+
+- **Purpose**: Removes the authentication token from AsyncStorage.
+- **Error Handling**: Logs an error if removing the token fails.
+
+### `isLoggedIn`
+
+- **Purpose**: Checks if a user is logged in by verifying the presence of an authentication token.
+- **Returns**: `true` if the token exists; `false` otherwise.
+
+##**Types.ts**
+# API Error Types and Structure
+
+This document explains the definitions and structure of API error types and error handling in the application. The `api/types.ts` file defines enumerations and TypeScript types for handling different API errors.
+
+## 1. API Error Types
+
+The `ApiErrorTypes` enum defines various types of errors that the API might return. These types help categorize the errors based on their nature:
+
+- **`ValidationError`**: `"ValidationFailure"`
+  - Indicates that there was a validation issue with the request data.
+
+- **`BadRequestError`**: `"BadRequest"`
+  - Represents a generic bad request error, often due to malformed or invalid request syntax.
+
+- **`UnauthorizedError`**: `"UnauthorizedError"`
+  - Signifies that the request requires user authentication or the authentication provided is invalid.
+
+- **`ForbiddenError`**: `"PermissionDenied"`
+  - Indicates that the request is understood, but the server refuses to authorize it. The user may lack necessary permissions.
+
+## 2. API Error Type Definitions
+
+The `TApiErrors` type defines the structure of different error responses that the API may return. This type uses TypeScript's union types to represent various error formats:
+
+- **Validation Error**:
+  ```typescript
+  {
+    error: ApiErrorTypes.ValidationError;
+    message: string;
+    statusCode: 403;
+  }
+
 
 
