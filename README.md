@@ -1271,5 +1271,202 @@ The `TApiErrors` type defines the structure of different error responses that th
     statusCode: 403;
   }
 
+## **Important Note** - You can find types of all the queries in hooks/api folder and hence it is not in the documentation
+
+## **Auth Query Explanation**
+# Authentication and User Management Hooks
+
+## 1. `useIsLoggedIn` Hook
+
+**Purpose:** This hook determines if the user is currently logged in.
+
+**How It Works:**
+- It defines an `isLoggedIn` function that checks for a valid authentication token by calling `getAuthToken()`. If the token exists, it returns `true`; otherwise, it returns `false`.
+- The `useIsLoggedIn` hook uses React Query’s `useQuery` to execute the `isLoggedIn` function. The result is cached with the query key `"isLoggedIn"`, allowing the application to determine the login status and react to it.
+
+## 2. `useLogin` Hook
+
+**Purpose:** This hook handles the user login process.
+
+**How It Works:**
+- It defines a `login` function that sends a POST request to the `/go-auth/guestLogin` endpoint with the user’s login details. This function returns the server response.
+- The `useLogin` hook uses React Query’s `useMutation` to perform the login operation. It specifies a `mutationFn` that invokes the `login` function with the provided details (e.g., credential and circleName). This hook provides status updates on the login process, such as success or failure.
+
+## 3. `useVerifyLogin` Hook
+
+**Purpose:** This hook verifies a guest login with an OTP (One-Time Password).
+
+**How It Works:**
+- It defines a `verifyLogin` function that sends a POST request to `/go-auth/verifyGuestLogin` with verification details, including the OTP. The server’s response is returned.
+- The `useVerifyLogin` hook uses React Query’s `useMutation` to handle the verification process. It calls the `verifyLogin` function with the provided details (e.g., credential, circleName, and OTP). The hook allows tracking of the verification process, including managing errors.
+
+## 4. `useDeleteUser` Hook
+
+**Purpose:** This hook deletes the current user account.
+
+**How It Works:**
+- It defines a `deleteUser` function that retrieves the authentication token using `getAuthToken()`. It includes this token in the request headers and sends a DELETE request to `/go-auth/deleteUser`. The function handles any errors that occur and returns the server response.
+- The `useDeleteUser` hook uses React Query’s `useMutation` to handle the user deletion process. It calls the `deleteUser` function when executed. The hook manages the mutation status, allowing you to handle the success or failure of the user deletion.
+
+## Error Handling and Data Flow
+
+**Error Handling:**
+- Each hook includes error handling. For example, the `deleteUser` function logs errors to the console and re-throws them for proper handling by the consuming components.
+
+**Data Flow:**
+- Hooks return data or errors from API requests, enabling components to manage and display authentication and user-related states effectively. For instance, the login and verification hooks provide responses that can be used to update the UI based on success or failure.
+
+These hooks streamline authentication and user management tasks by providing a clean and efficient way to handle these operations with React Query.
+
+## **Order Query Breakdown**
+# Order Management Hooks
+
+This file contains React Query hooks to manage order-related operations such as fetching user orders, retrieving order details, and canceling orders. It utilizes `useQuery` and `useMutation` from `@tanstack/react-query` to handle API interactions and manage state.
+
+## 1. `getUserOrders` Function
+
+**Purpose:** To retrieve a list of orders for the user.
+
+**How It Works:**
+- It fetches the authentication token using `getAuthToken()`. If the token is not found, an error is thrown.
+- It makes a GET request to the `/go-orders/getOrdersByPhone` endpoint with the token included in the request headers.
+- The function returns the list of orders from the response or throws an error if the request fails.
+
+## 2. `useGetUserOrders` Hook
+
+**Purpose:** To provide a React Query hook for fetching user orders.
+
+**How It Works:**
+- Uses React Query’s `useQuery` to call the `getUserOrders` function.
+- Caches the result with the query key `'userOrders'`.
+- Sets `staleTime` to `0`, meaning the data will be considered stale immediately after it is fetched, triggering refetches.
+
+## 3. `getOrderDetail` Function
+
+**Purpose:** To retrieve details for a specific order.
+
+**How It Works:**
+- It fetches the authentication token using `getAuthToken()`. If the token is not found, an error is thrown.
+- It makes a GET request to the `/go-orders/getSuccessOrder` endpoint with the order ID and the token included in the request headers.
+- The function returns the order details from the response or throws an error if the request fails.
+
+## 4. `useGetOrderDetail` Hook
+
+**Purpose:** To provide a React Query hook for fetching order details.
+
+**How It Works:**
+- Uses React Query’s `useQuery` to call the `getOrderDetail` function with the specific `orderId`.
+- Caches the result with a query key that includes both `'orderDetail'` and the `orderId`.
+
+## 5. `cancelOrder` Function
+
+**Purpose:** To cancel an order.
+
+**How It Works:**
+- It fetches the authentication token using `getAuthToken()`. If the token is not found, an error is thrown.
+- It sends a POST request to the `/go-inventory/statuspush` endpoint with the cancel request data.
+- If the server responds with "Success" or "OK", it sends a second POST request to `/go-inventory/statusUpdate` to update the order status.
+- Returns a success message or throws an error based on the server's response.
+
+## 6. `useCancelOrder` Hook
+
+**Purpose:** To provide a React Query hook for canceling an order.
+
+**How It Works:**
+- Uses React Query’s `useMutation` to call the `cancelOrder` function with the cancel request data.
+- Manages the mutation status, allowing you to handle the success or failure of the cancellation process.
+
+## Error Handling and Data Flow
+
+**Error Handling:**
+- Each function includes error handling. For instance, the `cancelOrder` function throws specific errors based on the server’s response or unexpected issues.
+
+**Data Flow:**
+- Hooks return data or errors from API requests, allowing components to manage and display order-related states effectively. For example, the `useGetUserOrders` and `useGetOrderDetail` hooks provide responses that can be used to update the UI based on the fetched data.
+
+These hooks facilitate the management of orders in your application by providing a streamlined and efficient approach to handle API interactions with React Query.
+
+## **Product Query Breakdown**
+# Product Management Hooks
+
+This file contains React Query hooks to manage product-related operations such as fetching product listings, retrieving product details, and handling pagination. It utilizes `useQuery` and `useInfiniteQuery` from `@tanstack/react-query` to handle API interactions and manage state.
+
+## 1. `fetchProductsWithParams` Function
+
+**Purpose:** To fetch a list of products with optional parameters and query parameters, supporting pagination.
+
+**How It Works:**
+- It constructs a GET request to the specified `path` with provided parameters (`params` and `queryParams`), including the `pageParam` for pagination.
+- Uses `qs.stringify` to serialize query parameters to handle array formats.
+- Returns the product data from the response or an empty array if no data is found.
+- Throws an error if the request fails.
+
+## 2. `useGetProducts` Hook
+
+**Purpose:** To provide a React Query hook for fetching product listings.
+
+**How It Works:**
+- Uses React Query’s `useQuery` to call the `fetchProductsWithParams` function.
+- Caches the result with a query key that includes `'products'`, `path`, `params`, and `queryParams`.
+- Provides the current state of the request, including loading and error states.
+
+## 3. `useGetInfiniteProducts` Hook
+
+**Purpose:** To provide a React Query hook for fetching product listings with infinite scrolling.
+
+**How It Works:**
+- Uses React Query’s `useInfiniteQuery` to handle pagination.
+- Calls `fetchProductsWithParams` with a `pageParam` that defaults to 1.
+- Sets `initialPageParam` to 1, and defines `getNextPageParam` to determine the next page based on the response.
+- Returns an updated list of products as more pages are fetched.
+
+## 4. `useGetBestSellers` Hook
+
+**Purpose:** To fetch best-selling products.
+
+**How It Works:**
+- Uses the `useGetProducts` hook with specific parameters to fetch products marked as bestsellers from the `go-products/products` endpoint.
+
+## 5. `useGetWoodsProducts` Hook
+
+**Purpose:** To fetch products from the "woods" brand.
+
+**How It Works:**
+- Uses the `useGetProducts` hook with specific parameters to fetch products from the "woods" brand from the `go-products/products` endpoint.
+
+## 6. `useGetAsmProducts` Hook
+
+**Purpose:** To fetch products from the "askatingmonk" brand.
+
+**How It Works:**
+- Uses the `useGetProducts` hook with specific parameters to fetch products from the "askatingmonk" brand from the `go-products/products` endpoint.
+
+## 7. `fetchProductDetailWithParams` Function
+
+**Purpose:** To fetch detailed information for a specific product.
+
+**How It Works:**
+- Constructs a GET request to the specified `path` with provided parameters and query parameters.
+- Returns the product detail data from the response.
+- Throws an error if the request fails.
+
+## 8. `useGetProductDetail` Hook
+
+**Purpose:** To provide a React Query hook for fetching product details.
+
+**How It Works:**
+- Uses React Query’s `useQuery` to call the `fetchProductDetailWithParams` function with the product slug.
+- Caches the result with a query key that includes `'productDetail'` and the `slug`.
+
+## Error Handling and Data Flow
+
+**Error Handling:**
+- Each function includes error handling. For instance, the `fetchProductsWithParams` and `fetchProductDetailWithParams` functions throw specific errors based on the server’s response or unexpected issues.
+
+**Data Flow:**
+- Hooks return data or errors from API requests, allowing components to manage and display product-related states effectively. For example, the `useGetProducts` and `useGetProductDetail` hooks provide responses that can be used to update the UI based on the fetched data.
+
+These hooks facilitate the management of products in your application by providing a streamlined and efficient approach to handle API interactions with React Query.
+
 
 
