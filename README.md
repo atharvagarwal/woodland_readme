@@ -8,10 +8,6 @@ It contains the explanation to each code file , and must be followed by referrin
 ## Table Of Contents
 
 - [Setting Up The Project](#setting-up-the-project)
-- [Project Name](#project-name)
-   * [Overview](#overview)
-- [Project Name](#project-name-1)
-   * [Overview](#overview-1)
    * [Folder Structure](#folder-structure)
    * [App Folder Breakdown](#app-folder-breakdown)
    * [**_layout.tsx**](#_layouttsx)
@@ -135,17 +131,7 @@ It contains the explanation to each code file , and must be followed by referrin
 2. Incase you know about how expo works you can directly clone the app from github using the command **git clone url**
 
 3. now **cd** into the directory , run **npm install** , **npx expo start** in order.
-# Project Name
 
-## Overview
-
-This project is structured as a modern application with several key folders for organization, reusable components, and efficient management of app functionality.
-
-# Project Name
-
-## Overview
-
-This project is structured as a modern expo application with usage of expo router containing several key folders for organization, reusable components, and efficient management of app functionality.
 
 ## Folder Structure
 
