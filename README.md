@@ -2,6 +2,8 @@
 # Woodland App
 
 E-commerce app for  Woods , A Skating Monk & Woods Sports
+It contains the explanation to each code file , and must be followed by referring to the code in the repo.
+
 ## Setting Up The Project
 
 1. The app is built using react-native with expo and in case you have never used expo and want to learn about setting it up from scratch you can follow https://docs.expo.dev/tutorial/create-your-first-app/ to setup your first app.
