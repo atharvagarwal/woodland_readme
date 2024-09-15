@@ -1104,4 +1104,59 @@ The store manages several pieces of state:
 This Zustand store setup provides an efficient and persistent state management solution for the application. It ensures that user data, cart contents, and filter options are preserved across sessions, enhancing the overall user experience.
 
 
+##Utils/rules.ts
+
+# Validation Rules
+
+This document outlines the validation rules for user input fields, including passwords, credentials, and email addresses. These rules ensure that user data conforms to expected formats and requirements.
+
+## 1. Password Validation Rule
+
+The password validation rule ensures that passwords meet specific security requirements:
+
+- **`required`**: `'password is required'`
+  - This message is shown if the password field is left empty.
+  
+- **`minLength`**: `{ value: 8, message: 'password must be at least 8 characters long' }`
+  - The password must be at least 8 characters long.
+  
+- **`pattern`**: `{ value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, message: 'password must contain at least one uppercase letter, one lowercase letter, one number and one special character' }`
+  - The password must include:
+    - At least one lowercase letter
+    - At least one uppercase letter
+    - At least one digit
+    - At least one special character from the set `@$!%*?&`
+  - This regular expression enforces these requirements for password security.
+
+## 2. Credential Validation Rule
+
+The credential validation rule is used for fields that can accept either an email or phone number, with validation criteria similar to the password rule:
+
+- **`required`**: `'email or phone number is required'`
+  - This message is shown if the field is left empty.
+  
+- **`pattern`**: `{ value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, message: 'credential must contain at least one uppercase letter, one lowercase letter, one number and one special character' }`
+  - The credential must meet similar requirements as the password:
+    - At least one lowercase letter
+    - At least one uppercase letter
+    - At least one digit
+    - At least one special character from the set `@$!%*?&`
+  - This ensures that the credential input is formatted securely.
+
+## 3. Email Validation Rule
+
+The email validation rule ensures that the input conforms to a valid email format:
+
+- **`pattern`**: `{ value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, message: 'please enter a valid email format' }`
+  - The email must match the regular expression pattern:
+    - Consists of alphanumeric characters and some special characters (`._-`) before the `@` symbol.
+    - The domain part consists of alphanumeric characters separated by periods.
+    - The top-level domain (TLD) must be between 2 to 4 alphabetic characters.
+
+## Exported Rules
+
+The validation rules are exported for use in form validation throughout the application:
+
+```javascript
+export { passwordRule, credentialRule, emailRule };
 
