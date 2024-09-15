@@ -106,7 +106,7 @@ hooks\api
 ## App Folder Breakdown
 
 
-### **_layout.tsx**
+## **_layout.tsx**
 
 The `_layout.tsx` component is responsible for providing a structured container for rendering screens throughout the app.
 
@@ -120,9 +120,9 @@ The `_layout.tsx` component is responsible for providing a structured container 
 
 This setup ensures a flexible, visually consistent layout for the app’s navigation structure.
 
-### **(auth) folder breakdown**
+## **(auth) folder breakdown**
 
-### **index.tsx**
+## **index.tsx**
 
 The `index.tsx` component displays a full-screen image carousel with the following features:
 
@@ -137,7 +137,7 @@ The `index.tsx` component displays a full-screen image carousel with the followi
 - **Layout:**
   - Styled using `StyleSheet` to ensure flexibility and responsiveness, adapting to various screen sizes.
 
-### **Signin.tsx**
+## **Signin.tsx**
 
 The `Signin.tsx` component serves as the login/registration screen with the following key features:
 
@@ -154,7 +154,7 @@ The `Signin.tsx` component serves as the login/registration screen with the foll
 
 This component establishes the initial step for mobile number authentication in the app.
 
-### **Otp.tsx**
+## **Otp.tsx**
 
 The `Otp.tsx` component manages OTP-based login verification with these key features:
 
@@ -177,8 +177,8 @@ This component efficiently manages OTP-based login verification and provides res
 
 
 
-### **(tabs) folder breakdown**
-### **Cart**
+## **(tabs) folder breakdown**
+## **Cart**
 The **Cart** component includes functionalities and UI elements related to cart management:
 
 - **Empty Cart**: 
@@ -193,7 +193,7 @@ The **Cart** component includes functionalities and UI elements related to cart 
 - **ScrollView**:
   - Uses `ScrollView` for scrolling through cart items, styled for proper alignment and layout.
 
-### **Explore.tsx**
+## **Explore.tsx**
 The `Explore` component is a product listing page with filtering options and infinite scrolling. Key features include:
 
 - **State Management**:
@@ -217,7 +217,7 @@ The `Explore` component is a product listing page with filtering options and inf
 - **Optimization**:
   - `useCallback` and `useFocusEffect` are used to reset filters and close the filter modal only when the component gains or loses focus, preventing unnecessary re-renders.
 
-### **Home.tsx**
+## **Home.tsx**
 The `Home` component serves as the main screen in the React Native app. Key features include:
 
 - **Data Fetching**:
@@ -236,7 +236,7 @@ The `Home` component serves as the main screen in the React Native app. Key feat
   - Uses `ScrollView` to layout sections vertically and `TouchableOpacity` for navigation.
 
 
-### **Orders.tsx**
+## **Orders.tsx**
 
 The `Orders` component displays a list of user orders and manages user authentication and loading states.
 
@@ -264,7 +264,7 @@ The `Orders` component displays a list of user orders and manages user authentic
   - **`orderInfoContainer`**: Styles the container for order information, including alignment and margins.
   - **`orderContainer`**: Styles the container for individual orders, including padding, border, and margins.
 
-### **+native-intent.tsx**
+## **+native-intent.tsx**
 
 In the context of React Native, the `+native-intent.tsx` file is used for handling dynamic routes or special navigation logic. The `+` symbol indicates that this file might be involved in routing or parameterized navigation.
 
@@ -287,7 +287,7 @@ This function is useful for redirecting or converting paths in a routing system,
 
 
 
-### **+not-found.tsx**
+## **+not-found.tsx**
 
 The `+not-found.tsx` component is used to handle scenarios where a requested resource is not found. It provides a fallback mechanism to guide users back to the main part of the app.
 
@@ -300,7 +300,7 @@ The `+not-found.tsx` component is used to handle scenarios where a requested res
 
 This component is typically used in routing systems to handle 404 errors or cases where a requested resource is unavailable, ensuring that users are redirected to the main page of the app.
 
-### **Checkout.tsx**
+## **Checkout.tsx**
 
 The `Checkout.tsx` component manages the checkout process for an e-commerce app in React Native. It ensures a smooth user experience by handling various aspects of the checkout flow.
 
@@ -342,7 +342,7 @@ The `Checkout.tsx` component manages the checkout process for an e-commerce app 
 **Overall,** `Checkout.tsx` integrates form handling, payment processing, and comprehensive UI management to create a user-friendly and efficient checkout experience.
 
 
-### **OrderDetail.tsx**
+## **OrderDetail.tsx**
 
 The `OrderDetail.tsx` component displays detailed information about an order, providing users with an overview of their order's status and contents.
 
@@ -369,7 +369,7 @@ The `OrderDetail.tsx` component displays detailed information about an order, pr
 - **Layout & Styling:**
   - Employs `SafeAreaView` and `StyleSheet` for responsive design and consistent styling across different devices.
 
-### **ProductDetail.tsx**
+## **ProductDetail.tsx**
 
 The `ProductDetail.tsx` component provides a detailed view of a product and allows users to interact with it.
 
@@ -425,7 +425,7 @@ The `ProductDetail.tsx` component provides a detailed view of a product and allo
 
 
 
-### **Success.tsx**
+## **Success.tsx**
 
 The `Success.tsx` component provides a confirmation screen for users after they have successfully placed an order. It manages data fetching, revenue tracking, and renders the appropriate UI elements.
 
@@ -461,7 +461,7 @@ The `Success.tsx` component provides a confirmation screen for users after they 
 
 ## Components Breakdown
 
-### **/Base/Button**
+## **/Base/Button**
 
 The `CustomButton` component renders a button with three style options: 'primary', 'secondary', and 'tertiary'. Key features include:
 
@@ -476,7 +476,7 @@ The `CustomButton` component renders a button with three style options: 'primary
 - **Functionality:**
   - The button's appearance dynamically adjusts based on the `type` prop, ensuring flexible design and integration across different parts of the app.
 
-### **/Base/Header**
+## **/Base/Header**
 
 The `Header` component displays a customizable header with search and drawer functionalities. Key features include:
 
@@ -496,7 +496,7 @@ The `Header` component displays a customizable header with search and drawer fun
 
 This component is well-structured for dynamic title display and navigation functionality, enhancing the app's usability.
 
-### **Cart**
+## **Cart**
 
 The `CartCard` component represents an item in a shopping cart. Key features include:
 
@@ -523,7 +523,7 @@ This component is designed to be flexible and reusable, providing a detailed vie
 
 ## Checkout Components
 
-### **Address.tsx**
+## **Address.tsx**
 
 The `AddressCard` component displays a user's address with an option to confirm delivery. Key features include:
 
@@ -539,7 +539,7 @@ The `AddressCard` component displays a user's address with an option to confirm 
 
 This reusable component is ideal for checkout processes or address books.
 
-### **AddressForm.tsx**
+## **AddressForm.tsx**
 
 The `AddressForm` component is designed for collecting address details, leveraging `react-hook-form` for form state management and validation. Key features include:
 
@@ -554,7 +554,7 @@ The `AddressForm` component is designed for collecting address details, leveragi
 
 This component is useful for adding new addresses, ensuring users provide all necessary information with built-in validation and a reset option.
 
-### **Bill.tsx**
+## **Bill.tsx**
 
 The `Bill` component provides a detailed financial summary. Key features include:
 
@@ -569,7 +569,7 @@ The `Bill` component provides a detailed financial summary. Key features include
 
 This component ensures a clear, organized view of charges and totals for easy user review.
 
-### **Donation.tsx**
+## **Donation.tsx**
 
 The `Donation` component allows users to opt-in for updates and add a donation to their transaction. Key features include:
 
@@ -587,7 +587,7 @@ The `Donation` component allows users to opt-in for updates and add a donation t
 This component enhances the checkout process by offering users the option to contribute to donations and receive updates.
 
 
-### **ControlledInput**
+## **ControlledInput**
 
 The `ControlledInput` component integrates with React Hook Form to offer a versatile input field with enhanced functionalities.
 
@@ -619,7 +619,7 @@ This component is designed for flexibility, supporting various input types and c
 
 ## **ProductDetail**
 
-### **PincodeChecker.tsx**
+## **PincodeChecker.tsx**
 
 The `PincodeChecker` component handles pincode input with validation.
 
@@ -643,7 +643,7 @@ The `PincodeChecker` component handles pincode input with validation.
   - **Usage:**
     - Ideal for scenarios requiring pincode input, such as code verification or delivery checks.
 
-### **ProductCarousel.tsx**
+## **ProductCarousel.tsx**
 
 The `ProductCarousel` component displays a horizontal image carousel with pagination indicators.
 
@@ -671,7 +671,7 @@ The `ProductCarousel` component displays a horizontal image carousel with pagina
 
 ## **Orders Breakdown**
 
-### **OrderCard.tsx**
+## **OrderCard.tsx**
 
 The `OrderCard` component displays the details of an order with options to view or cancel it.
 
@@ -704,7 +704,7 @@ The `OrderCard` component displays the details of an order with options to view 
   - **Usage:**
     - This component is used to present individual order details with actions to view more information or cancel the order, depending on its status.
 
-### **OrderDetailCard.tsx**
+## **OrderDetailCard.tsx**
 
 The `OrderDetailCard` component displays detailed information about an individual order item.
 
@@ -744,7 +744,7 @@ The `OrderDetailCard` component displays detailed information about an individua
 
 The `Accordion` component provides a collapsible section for displaying and hiding content.
 
-### Props
+## Props
 
 - `title` (string): Header text.
 - `onLinkPress` (function, optional): Callback function for link press.
@@ -753,17 +753,17 @@ The `Accordion` component provides a collapsible section for displaying and hidi
 - `dropdown` (boolean, default: `true`): Controls the presence of a dropdown arrow.
 - `subDrawer` (boolean): Adjusts styling for sub-items.
 
-### Features
+## Features
 
 - **Toggle Function**: Clicking the header toggles the content visibility.
 - **Icon**: An arrow icon indicates the expanded or collapsed state.
 
-### Styles
+## Styles
 
 - `link` and `subLink`: Styles for text and layout based on item type.
 - `text` and `subText`: Font styles for header text.
 
-### Usage
+## Usage
 
 Used for creating expandable sections in a UI, ideal for menus or settings.
 
@@ -773,7 +773,7 @@ Used for creating expandable sections in a UI, ideal for menus or settings.
 
 The `CategoryButton` component is a customizable button for React Native.
 
-### Props
+## Props
 
 - `text` (string): Button label.
 - `onPress` (function): Function to call when the button is pressed.
@@ -781,12 +781,12 @@ The `CategoryButton` component is a customizable button for React Native.
 - `textColor` (string): Text color.
 - `id` (string): Unique identifier for the button.
 
-### Features
+## Features
 
 - **Style**: Uses `Pressable` for handling press events and supports custom colors for background and text.
 - **Layout**: Styled with rounded corners and center-aligned text.
 
-### Usage
+## Usage
 
 Ideal for interactive elements where customization of colors and text is needed, such as category filters or action buttons.
 
@@ -796,18 +796,18 @@ Ideal for interactive elements where customization of colors and text is needed,
 
 The `CategoryList` component is a horizontal scrollable list of category buttons.
 
-### Features
+## Features
 
 - **Data Handling**: Renders buttons using an array of category names.
 - **State Management**: Tracks the selected category with `selectedId` and updates it on button press.
 - **Navigation**: Uses `useRouter` from `expo-router` to navigate to a category-specific page.
 
-### Components
+## Components
 
 - **ScrollView**: Allows horizontal scrolling of category buttons. Styled for proper height and background color.
 - **CategoryButton**: Custom button component that updates appearance based on selection.
 
-### Usage
+## Usage
 
 Displays a list of categories with the ability to select and view related content. The selected category is highlighted, and pressing a button navigates to a category-specific page.
 
@@ -817,12 +817,12 @@ Displays a list of categories with the ability to select and view related conten
 
 The `DrawerModal` component creates a modal drawer for navigation and settings.
 
-### Features
+## Features
 
 - **Visibility**: Controlled via the `visible` prop.
 - **Content**: Includes a close button, logo, and a list of navigational links organized into expandable accordions.
 
-### Usage
+## Usage
 
 Provides a detailed navigation menu and settings options within an app, supporting hierarchical categories and conditional content based on the platform.
 
@@ -830,15 +830,15 @@ Provides a detailed navigation menu and settings options within an app, supporti
 
 The `FilterComponent` provides a flexible and reusable interface for applying and resetting filters.
 
-### Props
+## Props
 
 - `handleCancelFilters` (function): Resets all filters.
 
-### Functionality
+## Functionality
 
 - Integrates with a state management system to update and apply filters dynamically.
 
-### Usage
+## Usage
 
 Designed to be flexible and reusable, allowing integration with various state management systems for dynamic filter updates.
 
@@ -848,7 +848,7 @@ Designed to be flexible and reusable, allowing integration with various state ma
 
 The `ProductListingCard` displays a product card featuring an image, title, pricing, and color options.
 
-### Props
+## Props
 
 - `title` (string): Product title.
 - `price` (number): Original price.
@@ -856,17 +856,17 @@ The `ProductListingCard` displays a product card featuring an image, title, pric
 - `productImageUrl` (string): URL for the main product image.
 - `productMeta` (object): Color options with URLs.
 
-### Functionality
+## Functionality
 
 - Displays the main product image and a discount badge if applicable.
 - Shows both original and discounted prices.
 - Renders clickable color thumbnails that update the main image and navigate to product details.
 
-### Navigation
+## Navigation
 
 - Uses `expo-router` to change routes based on the selected color's slug.
 
-### Usage
+## Usage
 
 Ideal for displaying product details with interactive color options and pricing information.
 
@@ -876,14 +876,14 @@ Ideal for displaying product details with interactive color options and pricing 
 
 The `Size` component displays a size option with customizable styling based on availability and state.
 
-### Props
+## Props
 
 - `size` (string): Size text to display.
 - `soldOut` (boolean, optional): Indicates if the size is unavailable.
 - `color` (string): Background color of the size option.
 - `inCart` (boolean, optional): Indicates if the size is in the cart.
 
-### Functionality
+## Functionality
 
 - Displays a circular box with the size text.
 - Applies different styles for sizes marked as sold out or those in the cart:
@@ -891,12 +891,12 @@ The `Size` component displays a size option with customizable styling based on a
   - **In Cart**: White text.
   - **Available**: Black text and background color as specified.
 
-### Styling
+## Styling
 
 - `root`: Basic style for available sizes.
 - `soldRoot`: Style for sizes marked as sold out.
 
-### Usage
+## Usage
 
 Used for displaying size options with visual cues for availability and cart status.
 
@@ -905,13 +905,13 @@ Used for displaying size options with visual cues for availability and cart stat
 
 The `SizeChart` component displays a modal with size charts for shoes or garments based on the `type` prop.
 
-### Props
+## Props
 
 - `visible` (boolean): Controls the visibility of the modal.
 - `type` (string): Determines the chart type, either `"SHOES"` or `"GARMENTS"`.
 - `onCrossPress` (function, optional): Function called when the close button is pressed.
 
-### Functionality
+## Functionality
 
 - Displays size charts for different categories:
   - **Garments**: Men's and women's tops and bottoms.
@@ -919,12 +919,12 @@ The `SizeChart` component displays a modal with size charts for shoes or garment
 - Each chart includes size measurements in various units (UK, EURO, CM for shoes; chest measurements for garments).
 - Alternates row colors for better readability.
 
-### Styling
+## Styling
 
 - Uses `SafeAreaView` for proper layout.
 - Includes a close button using Entypo and adjusts text and background colors based on the chart type.
 
-### Usage
+## Usage
 
 Provides size charts for both garments and shoes, with proper styling and visibility control.
 
