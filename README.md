@@ -285,7 +285,7 @@ In the context of React Native, the `+native-intent.tsx` file is used for handli
 
 This function is useful for redirecting or converting paths in a routing system, specifically from a path structure like `/product-detail/{slug}` to a query parameter format like `/ProductDetail?slug={slug}`. It simplifies the process of handling and transforming specific URL patterns for redirection purposes.
 
----
+
 
 ### **+not-found.tsx**
 
@@ -767,7 +767,7 @@ The `Accordion` component provides a collapsible section for displaying and hidi
 
 Used for creating expandable sections in a UI, ideal for menus or settings.
 
----
+
 
 ## CategoryButton.tsx
 
@@ -790,7 +790,7 @@ The `CategoryButton` component is a customizable button for React Native.
 
 Ideal for interactive elements where customization of colors and text is needed, such as category filters or action buttons.
 
----
+
 
 ## CategoryList.tsx
 
@@ -811,7 +811,7 @@ The `CategoryList` component is a horizontal scrollable list of category buttons
 
 Displays a list of categories with the ability to select and view related content. The selected category is highlighted, and pressing a button navigates to a category-specific page.
 
----
+
 
 ## drawerModal.tsx
 
@@ -842,7 +842,7 @@ The `FilterComponent` provides a flexible and reusable interface for applying an
 
 Designed to be flexible and reusable, allowing integration with various state management systems for dynamic filter updates.
 
----
+
 
 ## ProductListingCard.tsx
 
@@ -870,7 +870,7 @@ The `ProductListingCard` displays a product card featuring an image, title, pric
 
 Ideal for displaying product details with interactive color options and pricing information.
 
----
+
 
 ## Size.tsx
 
@@ -900,7 +900,6 @@ The `Size` component displays a size option with customizable styling based on a
 
 Used for displaying size options with visual cues for availability and cart status.
 
----
 
 ## SizeChart.tsx
 
