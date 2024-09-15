@@ -1183,9 +1183,9 @@ The `apiRequest` instance is created using `axios.create()` and is configured wi
   - **`"Content-Type"`**: `"application/json"`
     - Specifies that the content type of the requests is JSON. This header informs the server that the data being sent to it is in JSON format.
 
-##Hooks/API (using react-query)
+## **Hooks/API (using react-query)**
 
-##**ReactQuery.ts**
+## **ReactQuery.ts**
 # Configuration for API Requests and Authentication
 
 This document provides an overview of the `config.ts` file, which configures API requests, handles authentication tokens, and sets up React Query for data fetching and mutation.
