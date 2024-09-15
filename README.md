@@ -1159,4 +1159,29 @@ The validation rules are exported for use in form validation throughout the appl
 
 ```javascript
 export { passwordRule, credentialRule, emailRule };
+```
+# API Request Configuration present in (config.ts)
+
+This document provides an overview of the `config.ts` file, which sets up the configuration for making API requests using Axios. Axios is a popular HTTP client for making requests in JavaScript applications.
+
+## File Overview
+
+The `config.ts` file exports a configured Axios instance for making API requests. The configuration includes base URL and default headers for the requests.
+
+## Axios Instance Configuration
+
+The `apiRequest` instance is created using `axios.create()` and is configured with the following settings:
+
+### 1. Base URL
+
+- **`baseURL`**: `"https://api-v1.capcons.com"`
+  - This is the root URL for the API endpoints. All relative paths in the API requests will be appended to this base URL.
+
+### 2. Headers
+
+- **`headers`**: 
+  - **`"Content-Type"`**: `"application/json"`
+    - Specifies that the content type of the requests is JSON. This header informs the server that the data being sent to it is in JSON format.
+
+
 
