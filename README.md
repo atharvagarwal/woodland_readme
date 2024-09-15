@@ -123,6 +123,34 @@ It contains the explanation to each code file , and must be followed by referrin
 - [API Error Types and Structure](#api-error-types-and-structure)
    * [1. API Error Types](#1-api-error-types)
    * [2. API Error Type Definitions](#2-api-error-type-definitions)
+* [**Query Explanation**](#auth-query-explanation)
+- [Authentication and User Management Hooks](#authentication-and-user-management-hooks)
+   * [1. `useIsLoggedIn` Hook](#1-useisloggedin-hook)
+   * [2. `useLogin` Hook](#2-uselogin-hook)
+   * [3. `useVerifyLogin` Hook](#3-useverifylogin-hook)
+   * [4. `useDeleteUser` Hook](#4-usedeleteuser-hook)
+   * [Error Handling and Data Flow](#error-handling-and-data-flow)
+   * [**Order Query Breakdown**](#order-query-breakdown)
+- [Order Management Hooks](#order-management-hooks)
+   * [1. `getUserOrders` Function](#1-getuserorders-function)
+   * [2. `useGetUserOrders` Hook](#2-usegetuserorders-hook)
+   * [3. `getOrderDetail` Function](#3-getorderdetail-function)
+   * [4. `useGetOrderDetail` Hook](#4-usegetorderdetail-hook)
+   * [5. `cancelOrder` Function](#5-cancelorder-function)
+   * [6. `useCancelOrder` Hook](#6-usecancelorder-hook)
+   * [Error Handling and Data Flow](#error-handling-and-data-flow-1)
+   * [**Product Query Breakdown**](#product-query-breakdown)
+- [Product Management Hooks](#product-management-hooks)
+   * [1. `fetchProductsWithParams` Function](#1-fetchproductswithparams-function)
+   * [2. `useGetProducts` Hook](#2-usegetproducts-hook)
+   * [3. `useGetInfiniteProducts` Hook](#3-usegetinfiniteproducts-hook)
+   * [4. `useGetBestSellers` Hook](#4-usegetbestsellers-hook)
+   * [5. `useGetWoodsProducts` Hook](#5-usegetwoodsproducts-hook)
+   * [6. `useGetAsmProducts` Hook](#6-usegetasmproducts-hook)
+   * [7. `fetchProductDetailWithParams` Function](#7-fetchproductdetailwithparams-function)
+   * [8. `useGetProductDetail` Hook](#8-usegetproductdetail-hook)
+   * [Error Handling and Data Flow](#error-handling-and-data-flow-2)
+
 
 ## Setting Up The Project
 
@@ -1385,7 +1413,7 @@ The `TApiErrors` type defines the structure of different error responses that th
 
 ## **Important Note** - You can find types of all the queries in hooks/api folder and hence it is not in the documentation
 
-## **Auth Query Explanation**
+## **Query Explanation**
 # Authentication and User Management Hooks
 
 ## 1. `useIsLoggedIn` Hook
