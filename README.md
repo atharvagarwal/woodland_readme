@@ -933,3 +933,175 @@ The `SizeChart` component displays a modal with size charts for shoes or garment
 
 Provides size charts for both garments and shoes, with proper styling and visibility control.
 
+## **Constants**
+
+# Color Theme Configuration
+
+This file contains color theme settings for the application, which define the colors used for light and dark modes as well as common elements across the app.
+
+## Color Definitions
+
+### Light Theme
+
+- **Text**: `#000` (Black) - The color used for text in light mode.
+- **Background**: `#fff` (White) - The background color in light mode.
+- **Tint**: `#2f95dc` - The primary tint color used for highlighting elements.
+- **Tab Icon Default**: `#ccc` (Light Gray) - The default color for tab icons.
+- **Tab Icon Selected**: `#2f95dc` - The color for selected tab icons.
+
+### Dark Theme
+
+- **Text**: `#fff` (White) - The color used for text in dark mode.
+- **Background**: `#15151B` - The background color in dark mode.
+- **Tint**: `#fff` (White) - The primary tint color used for highlighting elements in dark mode.
+- **Tab Icon Default**: `#ccc` (Light Gray) - The default color for tab icons.
+- **Tab Icon Selected**: `#fff` (White) - The color for selected tab icons.
+- **Margin**: `#606060` (Gray) - The color used for margins and spacing elements.
+
+### Common Colors
+
+- **Primary Button**: `#00642E` - The color used for primary buttons.
+- **PlaceHolder**: `#ADADAD` (Light Gray) - The color for placeholder text.
+- **White**: `#fff` - The color white used in various components.
+- **Helper**: `#247FF5` - The color used for helper text or elements.
+- **Card Background**: `#F6F8FB` - The background color for cards.
+- **Default**: `#808080` (Gray) - A default gray color used in various places.
+- **Product Card**: `#EAEAEA` - The background color for product cards.
+
+These color settings are used throughout the application to maintain a consistent visual style. The light and dark themes allow the app to adapt to different user preferences or system settings.
+
+# Font Size and Weight Configuration
+
+This file defines the font size and weight settings used throughout the application. These settings help maintain consistent typography and ensure that text elements are appropriately styled.
+
+## Font Sizes
+
+The `size` object specifies various font sizes for different text elements:
+
+- **`xxxs`**: `8` - Extra extra extra small text.
+- **`xs`**: `10` - Extra small text.
+- **`s`**: `12` - Small text.
+- **`default`**: `14` - Default text size.
+- **`md`**: `16` - Medium text.
+- **`lg`**: `20` - Large text.
+- **`xlg`**: `22` - Extra large text.
+- **`xxlg`**: `26` - Extra extra large text.
+- **`xxxlg`**: `36` - Extra extra extra large text.
+- **`large`**: `75` - Used for very large text (e.g., headings or banners).
+
+## Font Weights
+
+The `weight` object defines various font weights that can be applied to text elements:
+
+- **`full`**: `'900'` - Extra bold or heavy text.
+- **`semi`**: `'600'` - Semi-bold text.
+- **`bold`**: `'bold'` - Bold text.
+- **`normal`**: `'normal'` - Normal weight text.
+- **`thin`**: `'400'` - Thin or light text.
+
+### Usage
+
+- **Font Sizes**: Use the `size` values to apply consistent font sizes across different text elements. For example, you might use `size.md` for medium-sized text or `size.large` for large headings.
+- **Font Weights**: Use the `weight` values to adjust the thickness of text. For instance, `weight.bold` can be used for emphasis or important text, while `weight.thin` can be used for lighter, less prominent text.
+
+These configurations ensure a uniform appearance and help in maintaining a consistent typographic style throughout the application.
+
+## **Store (Using Zustand)**
+
+# Zustand Store Setup
+
+This document provides a detailed breakdown of the Zustand store setup used in the application. Zustand is a lightweight state management library that helps in managing application state efficiently.
+
+## Table of Contents
+
+## 1. Imports and Dependencies
+
+- **`create`**: Function from Zustand to create the store.
+- **`persist`, `createJSONStorage`, `StateStorage`**: Middleware functions and types for state persistence using AsyncStorage.
+- **`AsyncStorage`**: Local storage for React Native to persist and retrieve state data.
+
+## 2. Type Definitions
+
+- **`ProductProps`**: Defines the shape of a product object.
+  - `id`: Unique identifier for the product.
+  - `title`: Name of the product.
+  - `price`: Regular price of the product.
+  - `offerPrice`: Discounted price of the product.
+  - `color`: Color of the product.
+  - `url`: URL for the product image.
+  - `size`: Size of the product.
+
+- **`CartProduct`**: Extends `ProductProps` with additional fields for cart management.
+  - `totalPrice`: Total price of the product in the cart.
+  - `quantity`: Quantity of the product in the cart.
+
+- **`UserType`**: Represents user information.
+  - `firstName`: Optional first name of the user.
+  - `lastName`: Optional last name of the user.
+  - `email`: Optional email of the user.
+  - `phone`: Mandatory phone number of the user.
+  - `id`: Mandatory unique identifier for the user.
+
+- **`FilterState`**: Manages filter options for the product list.
+  - `selectedCategory`: The selected category for filtering products.
+  - `filterOptions`: Options for filtering products.
+
+- **`StoreType`**: Combines all state slices and methods into a single interface.
+  - Includes user state, cart state, and filter state.
+
+## 3. Custom AsyncStorage Interface
+
+- **`myAsyncStorage`**: Custom implementation of `StateStorage` that wraps React Native’s `AsyncStorage`.
+  - Provides methods to get, set, and remove items from storage.
+
+## 4. Zustand Store Configuration
+
+### Store Initialization
+
+Uses the `create` function from Zustand to initialize the store with persistence middleware.
+
+### State Management
+
+The store manages several pieces of state:
+
+- **User State**:
+  - `phone`: User's phone number.
+  - `currentUser`: Details of the current user.
+  - `isLoading`: Indicates if the application is loading user data.
+
+- **Cart State**:
+  - `cartProduct`: Array of products in the cart.
+  - `totalAmount`: Total price of all items in the cart.
+
+- **Filters State**:
+  - Manages the filtering of products based on selected category and options.
+
+### Actions
+
+- **`addToCart`**: Adds a product to the cart. If the product already exists, increases the quantity.
+- **`decreaseQuantity`**: Decreases the quantity of a product in the cart.
+- **`increaseQuantity`**: Increases the quantity of a product in the cart.
+- **`removeFromCart`**: Removes a product from the cart.
+- **`resetCart`**: Clears the cart and resets the total amount.
+
+- **Filter Actions**:
+  - `setSelectedCategory`: Sets the selected category for filtering products.
+  - `setSelectedFilterOptions`: Sets the selected filter options.
+  - `resetFilters`: Resets all filters to default.
+
+### Persistence Configuration
+
+- **`name`**: Identifier for the storage key.
+- **`storage`**: Uses `createJSONStorage` with the custom `myAsyncStorage` to persist data.
+- **`partialize`**: Defines which parts of the state should be persisted:
+  - `cartProducts`
+  - `totalAmount`
+  - `phone`
+- **`onRehydrateStorage`**: Callback that sets the hydration state when the store is rehydrated from storage.
+
+## Conclusion
+
+This Zustand store setup provides an efficient and persistent state management solution for the application. It ensures that user data, cart contents, and filter options are preserved across sessions, enhancing the overall user experience.
+
+
+
