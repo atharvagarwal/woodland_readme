@@ -123,7 +123,7 @@ It contains the explanation to each code file , and must be followed by referrin
 - [API Error Types and Structure](#api-error-types-and-structure)
    * [1. API Error Types](#1-api-error-types)
    * [2. API Error Type Definitions](#2-api-error-type-definitions)
-* [**Query Explanation**](#auth-query-explanation)
+* [**Query Explanation**](#query-explanation)
 - [Authentication and User Management Hooks](#authentication-and-user-management-hooks)
    * [1. `useIsLoggedIn` Hook](#1-useisloggedin-hook)
    * [2. `useLogin` Hook](#2-uselogin-hook)
