@@ -77,19 +77,24 @@ This project is structured as a modern expo application with usage of expo route
 │       └── styledtext-test.js # Tests for styled text components
 └── utilities/
     └── securityClient.ts    # Utility for security-related client operations
-hooks\api
-├── checkout
+hooks/api/
+├── auth/
+│   ├── index.tsx
+│   ├── queries.tsx
+│   ├── types.ts
+├── checkout/
+│   ├── index.tsx
 │   ├── query.tsx
-│   └── types.ts
-├── order
-│   ├── query.tsx
-│   └── types.tsx
-├── product
-│   ├── query.tsx
-│   └── types.tsx
-    └── index.tsx
-├── reactquery.tsx
-├── types.ts
+│   ├── types.ts
+├── order/
+│   ├── queries.tsx
+│   ├── types.ts
+├── product/
+│   ├── index.tsx
+│   ├── queries.tsx
+│   ├── types.ts
+├── reactQuery.tsx
+├── types.tsx
 │
 ├── store/
 │   └── store.ts              # State management files based on Zustand
@@ -98,6 +103,9 @@ hooks\api
 │
 ├── config/
 │   └── config.ts             # Configuration settings for environment variables, API keys, and other libraries for axios etc
+├── constants/
+│   └── colors.ts             # contains color scheme for our app
+│   └── fonts.ts             # contains font size and weight for our app
 ```
 
 ## App Folder Breakdown
