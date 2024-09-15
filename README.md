@@ -25,61 +25,58 @@ This project is structured as a modern expo application with usage of expo route
 
 ```bash
 .
-├── app/ (automatic routing is done)
-│   ├── _layout.tsx           # Layout of the app
-|   │  auth/                  # Initial entry point of the app in logged in state contains pages for (e.g., Explore, Cart) with a default _layout.tsx file
-|   ├── _layout.tsx
-|   ├── index.tsx
-|   ├── Otp.tsx
-|   ├── SignIn.tsx
-|   |
-|    tabs/                     # Initial entry point of the app in not logged in state &contains tabs for (signin , otp etc) with a default _layout.tsx file
-|   ├── _layout.tsx
-|   ├── Cart.tsx
-|   ├── Categories.txt
-|   ├── Explore.tsx
-|   ├── home.tsx
-|   ├── Orders.tsx
-|   |        
-│   ├── +native-intent.tsx
-│   ├── +not-found.tsx
-│   ├── Checkout.tsx
-│   ├── OrderDetail.tsx
-│   ├── ProductDetail.tsx  
-│   ├── Success.tsx  
-│
+├── app/                     # Automatic routing is done
+│   ├── _layout.tsx          # Layout of the app
+│   ├── auth/                # Initial entry point of the app in logged in state
+│   │   ├── _layout.tsx      # Default layout for logged in state
+│   │   ├── Explore.tsx      # Page for exploring
+│   │   └── Cart.tsx         # Cart page
+│   ├── index.tsx            # Home page
+│   ├── Otp.tsx              # OTP page
+│   ├── SignIn.tsx           # Sign-in page
+│   ├── tabs/                # Initial entry point of the app in not logged in state
+│   │   ├── _layout.tsx      # Default layout for not logged in state
+│   │   ├── Cart.tsx         # Cart page (tabs)
+│   │   ├── Categories.tsx   # Categories page
+│   │   ├── Explore.tsx      # Explore page
+│   │   ├── home.tsx         # Home page (tabs)
+│   │   ├── Orders.tsx       # Orders page
+│   ├── +native-intent.tsx   # Native intent handling
+│   ├── +not-found.tsx       # 404 Not Found page
+│   ├── Checkout.tsx         # Checkout page
+│   ├── OrderDetail.tsx      # Order details page
+│   ├── ProductDetail.tsx    # Product details page
+│   └── Success.tsx          # Success page
 ├── assets/
-│   ├── images/               # Folder for app images
-│   └── fonts/                # Folder for app fonts
-│
-components                     # Folder for several types of reusable components used within the app.
-├── base
-│   ├── /Button/Button.tsx
-│   └── /Header/Header.tsx
-├── cart
-│   └── Card.tsx
-├── checkout
-│   ├── Address.tsx
-│   ├── AddressForm.tsx
-│   ├── Bill.tsx
-│   ├── Discount.tsx
-│   └── Donation.tsx
-├── common
-│   └── form
-│       └── ControlledInput.tsx
-├── orders
-│   ├── OrderList.tsx
-│   ├── OrderDetails.tsx
-│   └── OrderHistory.tsx
-├── products
-│   ├── ProductList.tsx
-│   ├── ProductDetails.tsx
-│   └── ProductSearch.tsx
-└── tests
-|   |__ styledtext-test.js
-└── utilities
-|   |__ securityClient.ts
-│
+│   ├── images/              # Folder for app images
+│   └── fonts/               # Folder for app fonts
+├── components/             # Folder for reusable components
+│   ├── base
+│   │   ├── Button.tsx       # Base button component
+│   │   └── Header.tsx       # Base header component
+│   ├── cart
+│   │   └── Card.tsx         # Cart card component
+│   ├── checkout
+│   │   ├── Address.tsx      # Address component
+│   │   ├── AddressForm.tsx  # Address form component
+│   │   ├── Bill.tsx         # Bill component
+│   │   ├── Discount.tsx     # Discount component
+│   │   └── Donation.tsx     # Donation component
+│   ├── common
+│   │   └── form
+│   │       └── ControlledInput.tsx # Controlled input component
+│   ├── orders
+│   │   ├── OrderList.tsx    # Order list component
+│   │   ├── OrderDetails.tsx # Order details component
+│   │   └── OrderHistory.tsx # Order history component
+│   ├── products
+│   │   ├── ProductList.tsx  # Product list component
+│   │   ├── ProductDetails.tsx # Product details component
+│   │   └── ProductSearch.tsx  # Product search component
+│   └── tests
+│       └── styledtext-test.js # Tests for styled text components
+└── utilities/
+    └── securityClient.ts    # Utility for security-related client operations
 hooks\api
 ├── checkout
 │   ├── query.tsx
