@@ -105,45 +105,76 @@ hooks\api
 
 ## App Folder Breakdown
 
+
 ### **_layout.tsx**
-The `Layout` component provides a structured container for rendering screens in the app. Key features include:
 
-- **SafeAreaView**: Ensures content avoids system UI elements like the status bar or notch.
-- **Slot Component**: Acts as a placeholder where child routes or screens are rendered dynamically.
-- **Styles**: Uses `styles.top` to apply a background color from `Colors.light.background` and ensures the view takes up the full height of the screen using `flex: 1`.
+The `_layout.tsx` component is responsible for providing a structured container for rendering screens throughout the app.
 
-This setup creates a flexible and visually consistent layout for the app's navigation structure.
+- **SafeAreaView:**
+  - Ensures content avoids system UI elements like the status bar or notch, maintaining a clean and accessible layout.
+- **Slot Component:**
+  - Serves as a placeholder for dynamically rendering child routes or screens, allowing for flexible navigation and screen transitions.
+- **Styles:**
+  - Uses `styles.top` to apply a background color sourced from `Colors.light.background`.
+  - Ensures the view occupies the full height of the screen using `flex: 1`, creating a consistent layout across different screens.
+
+This setup ensures a flexible, visually consistent layout for the app’s navigation structure.
+
+### **(auth) folder breakdown**
 
 ### **index.tsx**
-The `GetStarted` component displays a full-screen image carousel with the following features:
 
-- **Image Carousel**: Cycles through an array of image paths every 3 seconds using the `useEffect` hook.
-- **User Authentication Check**: Uses `isLoggedIn()` to redirect logged-in users to the home screen.
-- **Navigation**: Allows users to navigate to the sign-in page by pressing the "Next" button rendered by the `CustomButton` component.
-- **Layout**: Styled using `StyleSheet` for flexibility and responsiveness.
+The `index.tsx` component displays a full-screen image carousel with the following features:
+
+- **Image Carousel:**
+  - Cycles through an array of image paths every 3 seconds, providing users with a dynamic visual experience.
+  - Implemented using the `useEffect` hook to handle the automatic image rotation.
+- **User Authentication Check:**
+  - Uses the `isLoggedIn()` function to check user authentication status.
+  - Redirects logged-in users to the home screen, bypassing the introductory screens.
+- **Navigation:**
+  - Provides a "Next" button, rendered by the `CustomButton` component, allowing users to proceed to the sign-in page.
+- **Layout:**
+  - Styled using `StyleSheet` to ensure flexibility and responsiveness, adapting to various screen sizes.
 
 ### **Signin.tsx**
-The `Signin` component provides a login/registration screen with these key features:
 
-- **Mobile Number Input**: Users enter their mobile number to receive an OTP.
-- **OTP Request**: On pressing "Send OTP," an OTP is sent to the provided number.
-- **Validations**: Includes basic validations for mobile number length and format.
-- **API Integration**: Makes an API call to send the OTP.
-- **Conditional Navigation**: Redirects users immediately to the OTP screen if the number matches a specific test value.
+The `Signin.tsx` component serves as the login/registration screen with the following key features:
 
-This component forms the basis for mobile number authentication in the app.
+- **Mobile Number Input:**
+  - Allows users to enter their mobile number to receive an OTP for authentication.
+- **OTP Request:**
+  - Sends an OTP to the provided number when the "Send OTP" button is pressed.
+- **Validations:**
+  - Includes basic validations to ensure the mobile number length and format are correct.
+- **API Integration:**
+  - Makes an API call to send the OTP, ensuring backend communication for authentication.
+- **Conditional Navigation:**
+  - Redirects users to the OTP screen immediately if the entered number matches a specific test value.
+
+This component establishes the initial step for mobile number authentication in the app.
 
 ### **Otp.tsx**
-The `Otp` component manages OTP-based login verification. Key features include:
 
-- **OTP Input Handling**: Uses `CodeField` with `useBlurOnFulfill` and `useClearByFocusCell` for OTP input and focus behavior.
-- **Login Verification**: Submits the OTP via `handleSubmit`. If the OTP is `000000`, it simulates a successful login by setting a mock authentication token and navigating to the home screen. Otherwise, it uses `mutate` from `useVerifyLogin()` to validate the OTP.
-- **API Call**: Uses `mutate` from `useVerifyLogin()` to interact with the login API, handling success and error scenarios.
-- **Loading State**: Displays an `ActivityIndicator` while verification is in progress.
-- **Resend OTP**: Provides an option to resend the OTP by navigating back to the previous screen.
-- **UI Layout**: Includes a title, description, OTP input field, and a button to verify the OTP, all styled with `StyleSheet`.
+The `Otp.tsx` component manages OTP-based login verification with these key features:
 
-This component ensures effective management of OTP-based login verification with responsive UI feedback.
+- **OTP Input Handling:**
+  - Utilizes `CodeField` with `useBlurOnFulfill` and `useClearByFocusCell` for handling OTP input and managing focus behavior.
+- **Login Verification:**
+  - Submits the OTP via `handleSubmit`. If the OTP is `000000`, it simulates a successful login by setting a mock authentication token and navigating to the home screen.
+  - Otherwise, it uses `mutate` from `useVerifyLogin()` to validate the OTP with the backend API.
+- **API Call:**
+  - Interacts with the login API using `mutate` from `useVerifyLogin()`, handling both success and error scenarios.
+- **Loading State:**
+  - Displays an `ActivityIndicator` while verification is in progress to provide feedback to the user.
+- **Resend OTP:**
+  - Offers an option to resend the OTP by navigating back to the previous screen, enhancing user experience.
+- **UI Layout:**
+  - Includes a title, description, OTP input field, and a verification button, all styled with `StyleSheet` for a cohesive design.
+
+This component efficiently manages OTP-based login verification and provides responsive UI feedback throughout the process.
+
+
 
 
 
