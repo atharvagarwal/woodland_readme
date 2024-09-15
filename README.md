@@ -2,6 +2,7 @@
 # Woodland App
 
 E-commerce app for  Woods , A Skating Monk & Woods Sports
+
 It contains the explanation to each code file , and must be followed by referring to the code in the repo.
 
 ## Setting Up The Project
