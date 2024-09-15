@@ -5,29 +5,9 @@ E-commerce app for  Woods , A Skating Monk & Woods Sports
 
 It contains the explanation to each code file , and must be followed by referring to the code in the repo.
 
-## Setting Up The Project
+## Table Of Contents
 
-1. The app is built using react-native with expo and in case you have never used expo and want to learn about setting it up from scratch you can follow https://docs.expo.dev/tutorial/create-your-first-app/ to setup your first app.
-
-2. Incase you know about how expo works you can directly clone the app from github using the command **git clone url**
-
-3. now **cd** into the directory , run **npm install** , **npx expo start** in order.
-# Project Name
-
-## Overview
-
-This project is structured as a modern application with several key folders for organization, reusable components, and efficient management of app functionality.
-
-# Project Name
-
-## Overview
-
-This project is structured as a modern expo application with usage of expo router containing several key folders for organization, reusable components, and efficient management of app functionality.
-
-##Table Of Contents
-
-- [Woodland App](#woodland-app)
-   * [Setting Up The Project](#setting-up-the-project)
+- [Setting Up The Project](#setting-up-the-project)
 - [Project Name](#project-name)
    * [Overview](#overview)
 - [Project Name](#project-name-1)
@@ -147,6 +127,25 @@ This project is structured as a modern expo application with usage of expo route
 - [API Error Types and Structure](#api-error-types-and-structure)
    * [1. API Error Types](#1-api-error-types)
    * [2. API Error Type Definitions](#2-api-error-type-definitions)
+
+## Setting Up The Project
+
+1. The app is built using react-native with expo and in case you have never used expo and want to learn about setting it up from scratch you can follow https://docs.expo.dev/tutorial/create-your-first-app/ to setup your first app.
+
+2. Incase you know about how expo works you can directly clone the app from github using the command **git clone url**
+
+3. now **cd** into the directory , run **npm install** , **npx expo start** in order.
+# Project Name
+
+## Overview
+
+This project is structured as a modern application with several key folders for organization, reusable components, and efficient management of app functionality.
+
+# Project Name
+
+## Overview
+
+This project is structured as a modern expo application with usage of expo router containing several key folders for organization, reusable components, and efficient management of app functionality.
 
 ## Folder Structure
 
